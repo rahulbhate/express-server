@@ -1,41 +1,19 @@
 require('./db_connection.js');
-const mongoose = require('mongoose');
+const usersRoute = require('./api/routes/users');
+const speakersRoute = require('./api/routes/speakers');
+const sessionsRoute = require('./api/routes/sessions');
+const signupRoute = require('./api/routes/signup');
 const express = require('express');
-
+var bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
 const port = 8080;
-
-const speaker = require('./db.json');
 const User = require('./server/models/user');
 app.use(cors());
-app.get('/', (req, res, next) => res.send(speaker));
-app.get('/sessions', (req, res, next) => res.send(speaker));
-app.post('/speakers', (req, res, next) => res.send(speaker));
-app.get('/user', (req, res, next) =>
-  res.status(200).json({ message: 'It Works' }),
-);
-app.post('/user/:userId', (req, res, next) =>
-  res.status(200).json({ message: req.body }),
-);
-app.get('/signup/', (req, res, next) => {
-  let email = req.query.email;
-  let password = req.query.password;
-  console.log(email, password);
-
-  const user = new User({
-    _id: new mongoose.Types.ObjectId(),
-    email: req.query.email,
-    password: req.query.password,
-  });
-  user
-    .save()
-    .then((result) => {
-      console.log(result);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  res.status(200).json({ email: email, password: password });
-});
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use('/', speakersRoute);
+app.use('/users', usersRoute);
+app.use('/sessions', sessionsRoute);
+app.use('/signup', signupRoute);
 app.listen(port);
