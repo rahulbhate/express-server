@@ -9,9 +9,8 @@ mongoose
     { useNewUrlParser: true },
   )
   .then((result) => {
-    console.log(result);
+    console.log('Connection Successful');
   })
   .catch((err) => {
     console.log(err, 'Bad Request Connnection...*****************');
   });
-

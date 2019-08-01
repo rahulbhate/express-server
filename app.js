@@ -16,4 +16,5 @@ app.use('/speakers', speakersRoute);
 app.use('/sessions', sessionsRoute);
 app.use('/users', usersRoute);
 app.use('/signup', signupRoute);
+app.use('/login', signupRoute);
 app.listen(port);
