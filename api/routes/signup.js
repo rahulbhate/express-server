@@ -53,7 +53,7 @@ router.post('/signup', (req, res, next) => {
       });
     });
 });
-router.post('/', (req, res, next) => {
+router.post('/login', (req, res, next) => {
   User.find({ email: req.body.email })
     .exec()
     .then((user) => {
@@ -92,6 +92,23 @@ router.post('/', (req, res, next) => {
       res.status(500).json({
         error: err,
       });
+    });
+});
+
+router.get('/', (req, res) => {
+  var decoded = jwt.verify(req.headers['authorization'], 'secret');
+  User.findOne({
+    _id: decoded._id,
+  })
+    .then((user) => {
+      if (user) {
+        res.json(user);
+      } else {
+        res.send('user does not exists');
+      }
+    })
+    .catch((err) => {
+      res.send(err);
     });
 });
 module.exports = router;

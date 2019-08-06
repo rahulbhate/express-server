@@ -15,6 +15,7 @@ app.use(bodyParser.json());
 app.use('/speakers', speakersRoute);
 app.use('/sessions', sessionsRoute);
 app.use('/users', usersRoute);
-app.use('/signup', signupRoute);
+app.use('/', signupRoute);
 app.use('/login', signupRoute);
+app.use('/profile', signupRoute);
 app.listen(port);
