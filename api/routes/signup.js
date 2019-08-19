@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const User = require('../../server/models/user');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-
+const checkAuth = require('../middleware/check-auth');
 router.post('/signup', (req, res, next) => {
   let email = req.body.email;
   let password = req.body.password;
@@ -53,7 +53,7 @@ router.post('/signup', (req, res, next) => {
       });
     });
 });
-router.post('/login', (req, res, next) => {
+router.post('/login',(req, res, next) => {
   User.find({ email: req.body.email })
     .exec()
     .then((user) => {
@@ -75,11 +75,12 @@ router.post('/login', (req, res, next) => {
               userId: user[0]._id,
             },
             'secret',
-            { expiresIn: '1h' },
+            { expiresIn: 60 },
           );
           return res.status(200).json({
             message: 'Auth Successful',
             token: token,
+            
           });
         }
         res.status(401).json({
@@ -94,7 +95,9 @@ router.post('/login', (req, res, next) => {
       });
     });
 });
-
+router.post('/logout',(req, res, next) => {
+ console.log("you are logged out");
+});
 router.get('/', (req, res) => {
   var decoded = jwt.verify(req.headers['authorization'], 'secret');
   User.findOne({

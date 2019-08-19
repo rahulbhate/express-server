@@ -34,7 +34,7 @@ app.use(function(req, res, next) {
   next();
 });
 // Auth middleware
-app.use((req, res, next) => {
+/*app.use((req, res, next) => {
   // login does not require jwt verification
   if (req.path == '/login') {
     // next middleware
@@ -60,7 +60,7 @@ app.use((req, res, next) => {
 
   // next middleware
   next();
-});
+});*/
 //...
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -68,6 +68,5 @@ app.use('/speakers', speakersRoute);
 app.use('/sessions', sessionsRoute);
 app.use('/users', usersRoute);
 app.use('/', signupRoute);
-app.use('/login', signupRoute);
 app.use('/profile', signupRoute);
 app.listen(port);
