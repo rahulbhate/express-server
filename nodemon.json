@@ -1,7 +1,0 @@
-{
-    "env": {
-        "MONGO_USER": "admin",
-        "MONGO_PASSWORD": "Veda@3!6",
-        "MONGO_DB": "react-serverside-dev"
-    }
-}

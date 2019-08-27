@@ -62,6 +62,9 @@ app.use(function(req, res, next) {
   next();
 });*/
 //...
+const dotenv = require('dotenv');
+dotenv.config();
+console.log(`Your port is ${process.env.MONGO_DB}`);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use('/speakers', speakersRoute);
