@@ -53,7 +53,7 @@ router.post('/signup', (req, res, next) => {
       });
     });
 });
-router.post('/login',(req, res, next) => {
+router.post('/login', (req, res, next) => {
   User.find({ email: req.body.email })
     .exec()
     .then((user) => {
@@ -80,7 +80,6 @@ router.post('/login',(req, res, next) => {
           return res.status(200).json({
             message: 'Auth Successful',
             token: token,
-            
           });
         }
         res.status(401).json({
@@ -95,11 +94,14 @@ router.post('/login',(req, res, next) => {
       });
     });
 });
-router.post('/logout',(req, res, next) => {
- console.log("you are logged out");
+router.post('/logout', (req, res, next) => {
+  res.status(200).json({
+    message: 'Logged out',
+  });
 });
 router.get('/', (req, res) => {
   var decoded = jwt.verify(req.headers['authorization'], 'secret');
+  console.log('DECODED', decoded);
   User.findOne({
     _id: decoded._id,
   })
