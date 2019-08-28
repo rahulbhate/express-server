@@ -7,7 +7,7 @@ const express = require('express');
 var bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 7000;
 const User = require('./server/models/user');
 //...
 
@@ -62,9 +62,6 @@ app.use(function(req, res, next) {
   next();
 });*/
 //...
-const dotenv = require('dotenv');
-dotenv.config();
-console.log(`Your port is ${process.env.MONGO_DB}`);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use('/speakers', speakersRoute);
