@@ -70,3 +70,4 @@ app.use('/users', usersRoute);
 app.use('/', signupRoute);
 app.use('/profile', signupRoute);
 app.listen(port);
+console.log(port);
