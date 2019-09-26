@@ -2,6 +2,7 @@ require('./db_connection.js');
 const usersRoute = require('./api/routes/users');
 const speakersRoute = require('./api/routes/speakers');
 const sessionsRoute = require('./api/routes/sessions');
+const productsRoute = require('./api/routes/products');
 const signupRoute = require('./api/routes/signup');
 const express = require('express');
 var bodyParser = require('body-parser');
@@ -64,7 +65,8 @@ app.use(function(req, res, next) {
 //...
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use('/speakers', speakersRoute);
+app.use('/', speakersRoute);
+app.use('/', productsRoute);
 app.use('/sessions', sessionsRoute);
 app.use('/users', usersRoute);
 app.use('/', signupRoute);

@@ -1,0 +1,67 @@
+{
+  "storeProducts": [
+    {
+      "id": 1,
+      "title": "Google Pixel - Black",
+      "price": "$200",
+      "image": "https://images.pexels.com/photos/238541/pexels-photo-238541.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "GST": "excl GST"
+    },
+    {
+      "id": 2,
+      "title": "Google Pixel - White",
+      "price": "$200",
+      "image": "https://images.pexels.com/photos/238541/pexels-photo-238541.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "GST": "excl GST"
+    },
+    {
+      "id": 3,
+      "title": "Google Pixel - Pink",
+      "price": "$200",
+      "image": "https://images.pexels.com/photos/238541/pexels-photo-238541.jpeg",
+      "GST": "excl GST"
+    },
+    {
+      "id": 4,
+      "title": "Google Pixel - Blue",
+      "price": "$200",
+      "image": "https://images.pexels.com/photos/238541/pexels-photo-238541.jpeg",
+      "GST": "excl GST"
+    },
+    {
+      "id": 5,
+      "title": "Google Pixel - Gray",
+      "price": "$200",
+      "image": "https://images.pexels.com/photos/238541/pexels-photo-238541.jpeg",
+      "GST": "excl GST"
+    },
+    {
+      "id": 6,
+      "title": "Google Pixel - Green",
+      "price": "$200",
+      "image": "https://images.pexels.com/photos/238541/pexels-photo-238541.jpeg",
+      "GST": "excl GST"
+    },
+    {
+      "id": 7,
+      "title": "Google Pixel - Purple",
+      "price": "$200",
+      "image": "https://images.pexels.com/photos/238541/pexels-photo-238541.jpeg",
+      "GST": "excl GST"
+    },
+    {
+      "id": 8,
+      "title": "Google Pixel - orange",
+      "price": "$200",
+      "image": "https://images.pexels.com/photos/238541/pexels-photo-238541.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "GST": "excl GST"
+    },
+    {
+      "id": 9,
+      "title": "Google Pixel - orange",
+      "price": "$200",
+      "image": "https://images.pexels.com/photos/238541/pexels-photo-238541.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "GST": "excl GST"
+    }
+  ]
+}
