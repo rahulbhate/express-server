@@ -1,13 +1,20 @@
-const storeProducts = require('../../products.json');
+const Product = require('../../server/models/product');
 const express = require('express');
 const router = express.Router();
 
 router.get('/products', (req, res, next) => {
-  res.send(storeProducts);
+  Product.find()
+    .limit(2)
+    .skip(1)
+    .exec()
+    .then((storeProducts) => {
+      res.send(storeProducts);
+    });
 });
 
 router.post('/cart', (req, res) => {
   //generates the list of products in the cart
+  console.log('Route Called');
   let products = [],
     id = null;
   let cart = JSON.parse(req.body.cart);
