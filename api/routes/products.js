@@ -2,10 +2,13 @@ const Product = require('../../server/models/product');
 const express = require('express');
 const router = express.Router();
 
-router.get('/products', (req, res, next) => {
+router.get('/products/', (req, res, next) => {
+  let start = parseInt(req.query.start);
+  let limits = parseInt(req.query.limit);
+  console.log(start, limits);
   Product.find()
-    .limit(2)
-    .skip(1)
+    .limit(limits)
+    .skip(start)
     .exec()
     .then((storeProducts) => {
       res.send(storeProducts);
